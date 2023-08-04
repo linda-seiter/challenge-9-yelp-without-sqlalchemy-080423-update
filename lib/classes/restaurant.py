@@ -31,7 +31,9 @@ class Restaurant:
     @classmethod
     def top_two_restaurants(cls):
         sorted_list = sorted(
-            cls.all, key=lambda restaurant: restaurant.average_star_rating(), reverse=True
+            cls.all,
+            key=lambda restaurant: restaurant.average_star_rating(),
+            reverse=True,
         )
         return (
             sorted_list[:2]

@@ -1,6 +1,6 @@
 class Review:
     all = []
-    
+
     def __init__(self, customer, restaurant, rating):
         self.customer = customer
         self.restaurant = restaurant
@@ -10,7 +10,7 @@ class Review:
     @property
     def rating(self):
         return self._rating
-    
+
     @rating.setter
     def rating(self, rating):
         if isinstance(rating, int) and 1 <= rating <= 5 and not hasattr(self, "rating"):
@@ -22,7 +22,7 @@ class Review:
     @property
     def customer(self):
         return self._customer
-    
+
     @customer.setter
     def customer(self, customer):
         if isinstance(customer, Customer):
@@ -34,7 +34,7 @@ class Review:
     @property
     def restaurant(self):
         return self._restaurant
-    
+
     @restaurant.setter
     def restaurant(self, restaurant):
         if isinstance(restaurant, Restaurant):
@@ -42,6 +42,7 @@ class Review:
         else:
             return None
             # raise Exception("restaurant must be of type Restaurant")
+
 
 from classes.customer import Customer
 from classes.restaurant import Restaurant
