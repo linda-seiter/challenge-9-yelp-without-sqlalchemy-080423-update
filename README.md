@@ -129,7 +129,7 @@ here and the tests will pass, but you don't have to this time around!
   - Reminder: a review is considered negative if its rating is 1 or 2
   - Returns the total number of negative reviews that a customer has authored
   - Returns `0` if the customer never left a bad review
-- `Customer has_reviewed_restaurant()`
+- `Customer has_reviewed_restaurant(restaurant)`
   - Receives a `Restaurant` instance as argument
   - Returns `True` if the customer has written a review for the given restaurant object
   - Returns `False` otherwise
@@ -144,7 +144,7 @@ here and the tests will pass, but you don't have to this time around!
 - `Restaurant classmethod top_two_restaurants()`
   - Returns the top 2 restaurants in descending order by average star rating
   - Returns `None` if there are no reviews
-
+  - _hint: will need a way to remember all restaurant objects_
 ### Bonus: Aggregate and Association Method
 
 - `Customer classmethod top_negative_reviewer()`
@@ -157,15 +157,15 @@ here and the tests will pass, but you don't have to this time around!
 ### Bonus: For any invalid inputs raise an `Exception`.
 - First, **comment out** the following lines
   - **customer_test.py**
-    - lines 24-28, and 46-49
+    - lines 25-29, and 47-50
   - **restaurant_test.py**
-    - lines 25-26
+    - lines 26-27
   - **review_test.py**
-    - lines 27-28, and 74
+    - lines 28-29, and 75
 - Then, **uncomment** the following lines in the test files
   - **customer_test.py**
-    - lines 31-32, 35-36, 54-55, 58-59, 62-63, and 66-67
+    - lines 32-33, 36-37, 55-56, 59-60, 63-64, and 67-68
   - **restaurant_test.py**
-    - lines 29-30, and 41-42
+    - lines 30-31, and 42-43
   - **review_test.py**
-    - lines 31-32, 44-45, 48-49, 52-53, 81-82, and 107-108
+    - lines 32-33, 45-46, 49-50, 53-54, 82-83, and 107-108

@@ -1,11 +1,10 @@
 class Restaurant:
-
     def __init__(self, name):
         self.name = name
-        
+
     def reviews(self):
         pass
-    
+
     def customers(self):
         pass
 
