@@ -16,17 +16,6 @@ class TestReview:
 
         assert(review_1.rating == 2)
         assert(review_2.rating == 5)
-        
-        # uncomment the next two lines if using Exceptions
-        # with pytest.raises(Exception):
-        #     Review(customer, restaurant, "5")
-
-        # with pytest.raises(Exception):
-        #     review_1.rating = 6
-        # with pytest.raises(Exception):
-        #     review_1.rating = "6"
-        # with pytest.raises(Exception):
-        #     review_1.rating = -3
 
     def test_rating_is_immutable(self):
         """rating is immutable"""
@@ -46,7 +35,7 @@ class TestReview:
         """rating must be of type int and between 1 and 5"""
         restaurant = Restaurant("Mels")
         customer = Customer('Steve', 'Wayne')
-        review_1 = Review(customer, restaurant, 6)
+        review_1 = Review(customer, restaurant, 4)
         
         assert isinstance(review_1.rating, int)
         assert 1 <= review_1.rating <= 5
@@ -80,9 +69,13 @@ class TestReview:
         customer = Customer('Steve', 'Wayne')
         review_1 = Review(customer, restaurant, 2)
         review_2 = Review(customer, restaurant, 5)
+        
+        #comment out next line if using Exceptions
+        review_1.customer = "Casper"
 
         assert isinstance(review_1.customer, Customer)
         assert isinstance(review_2.customer, Customer)
+        assert review_1.customer == customer
         
         # uncomment the next two lines if using Exceptions
         # with pytest.raises(Exception):
@@ -113,3 +106,15 @@ class TestReview:
         # uncomment the next two lines if using Exceptions
         # with pytest.raises(Exception):
         #     Review(customer, "Da Giovanni", 5)
+
+    def test_has_all_property(self):
+        """Review class has an all property"""
+        Review.all = []
+        restaurant = Restaurant("Mels")
+        customer = Customer('Steve', 'Wayne')
+        review_1 = Review(customer, restaurant, 2)
+        review_2 = Review(customer, restaurant, 5)
+
+        assert len(Review.all) == 2
+        assert review_1 in Review.all
+        assert review_2 in Review.all
