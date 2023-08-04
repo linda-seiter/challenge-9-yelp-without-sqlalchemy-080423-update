@@ -4,40 +4,112 @@ from classes.restaurant import Restaurant
 from classes.customer import Customer
 from classes.review import Review
 
-class TestReviews:
+class TestReview:
     '''Review in review.py'''
 
-    def test_has_customer_restaurant_rating(self):
-        '''has the customer, restaurant, and rating passed into __init__'''
-        customer = Customer('Steve', 'Wayne')
+    def test_has_rating(self):
+        '''Review is initialized with a rating'''
         restaurant = Restaurant("Mels")
-        review = Review(customer, restaurant, 2)
-
-        assert review.customer == customer
-        assert review.restaurant == restaurant
-        assert review.rating == 2
-
-    def test_validates_customer(self):
-        '''checks to ensure customer is of type Customer'''
-        restaurant = Restaurant("Katz")
-        
-        with pytest.raises(Exception):
-            Review(1, restaurant, 2)
-
-    def test_validates_restaurant(self):
-        '''checks to ensure restaurant is of type Restaurant'''
-        customer = Customer('Prabhdip', 'Gill')
-        
-        with pytest.raises(Exception):
-            Review(customer, 1, 2)
-
-    def test_validates_rating(self):
-        '''checks to ensure rating is integer between 1 and 5, inclusive'''
         customer = Customer('Steve', 'Wayne')
+        review_1 = Review(customer, restaurant, 2)
+        review_2 = Review(customer, restaurant, 5)
+
+        assert(review_1.rating == 2)
+        assert(review_2.rating == 5)
+        
+        # uncomment the next two lines if using Exceptions
+        # with pytest.raises(Exception):
+        #     Review(customer, restaurant, "5")
+
+        # with pytest.raises(Exception):
+        #     review_1.rating = 6
+        # with pytest.raises(Exception):
+        #     review_1.rating = "6"
+        # with pytest.raises(Exception):
+        #     review_1.rating = -3
+
+    def test_rating_is_immutable(self):
+        """rating is immutable"""
         restaurant = Restaurant("Mels")
+        customer = Customer('Steve', 'Wayne')
+        review_1 = Review(customer, restaurant, 2)
 
-        with pytest.raises(Exception):
-            Review(customer, restaurant, 0)
+        # comment out the next two lines if using Exceptions
+        review_1.rating = 1
+        assert review_1.rating == 2
+        
+        # uncomment the next two lines if using Exceptions
+        # with pytest.raises(Exception):
+        #     review_1.rating = 4
 
-        with pytest.raises(Exception):
-            Review(customer, restaurant, 6)
+    def test_rating_is_valid_int(self):
+        """rating must be of type int and between 1 and 5"""
+        restaurant = Restaurant("Mels")
+        customer = Customer('Steve', 'Wayne')
+        review_1 = Review(customer, restaurant, 6)
+        
+        assert isinstance(review_1.rating, int)
+        assert 1 <= review_1.rating <= 5
+        
+        # uncomment the next two lines if using Exceptions
+        # with pytest.raises(Exception):
+        #     Review(customer, restaurant, 0)
+
+        # uncomment the next two lines if using Exceptions
+        # with pytest.raises(Exception):
+        #     Review(customer, restaurant, 6)
+
+        # uncomment the next two lines if using Exceptions
+        # with pytest.raises(Exception):
+        #     Review(customer, restaurant, "4")
+
+    def test_has_a_customer(self):
+        '''review has a customer'''
+        restaurant = Restaurant("Mels")
+        customer = Customer('Steve', 'Wayne')
+        review_1 = Review(customer, restaurant, 2)
+        review_2 = Review(customer, restaurant, 5)
+
+        assert(review_1.customer == customer)
+        assert(review_2.customer == customer)
+    
+    def test_customer_of_type_customer(self):
+        """customer must be of type Customer"""
+        
+        restaurant = Restaurant("Mels")
+        customer = Customer('Steve', 'Wayne')
+        review_1 = Review(customer, restaurant, 2)
+        review_2 = Review(customer, restaurant, 5)
+
+        assert isinstance(review_1.customer, Customer)
+        assert isinstance(review_2.customer, Customer)
+        
+        # uncomment the next two lines if using Exceptions
+        # with pytest.raises(Exception):
+        #     Review("Johnny", restaurant, 5)
+
+
+    def test_has_a_restaurant(self):
+        '''review has a restaurant'''
+        restaurant = Restaurant("Mels")
+        customer = Customer('Steve', 'Wayne')
+        customer_2 = Customer('Dima', 'Bay')
+        review_1 = Review(customer, restaurant, 2)
+        review_2 = Review(customer_2, restaurant, 5)
+
+        assert(review_1.restaurant == restaurant)
+        assert(review_2.restaurant == restaurant)
+
+    def restaurant_of_type_restaurant(self):
+        """restaurant must be of type Restaurant"""
+        restaurant = Restaurant("Mels")
+        customer = Customer('Steve', 'Wayne')
+        review_1 = Review(customer, restaurant, 2)
+        review_2 = Review(customer, restaurant, 5)
+
+        assert isinstance(review_1.restaurant, Restaurant)
+        assert isinstance(review_2.restaurant, Restaurant)
+        
+        # uncomment the next two lines if using Exceptions
+        # with pytest.raises(Exception):
+        #     Review(customer, "Da Giovanni", 5)

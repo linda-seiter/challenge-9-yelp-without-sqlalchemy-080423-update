@@ -4,13 +4,17 @@ class Customer:
         self.first_name = first_name
         self.last_name = last_name
         
-    def reviews(self, new_review=None):
-        from classes.review import Review
+    def reviews(self):
         pass
     
-    def restaurants(self, new_restaurant=None):
-        from classes.restaurant import Restaurant
+    def restaurants(self):
         pass
 
-    def num_reviews(self):
+    def num_negative_reviews(self):
         pass
+    
+    def has_reviewed_restaurant(self, restaurant):
+        pass
+    
+
+from classes.review import Review

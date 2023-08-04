@@ -22,7 +22,8 @@ start coding_. Remember to identify a single source of truth for your data.
 
 ## Instructions
 
-To get started, run `pipenv install` while inside of this directory.
+To get started, run `pipenv install` while inside of this directory. 
+Then run `pipenv shell` to jump into the shell.
 
 Build out all of the methods listed in the deliverables. The methods are listed
 in a suggested order, but you can feel free to tackle the ones you think are
@@ -55,7 +56,7 @@ comments describing your progress.
 Write the following methods in the classes in the files provided. Feel free to
 build out any helper methods if needed.
 
-### Initializers, Readers, and Writers
+### Initializers and Properties
 
 For any invalid inputs raise an `Exception`. In your future work, you should
 raise specific types of exceptions for specific error cases. You can do that
@@ -64,85 +65,107 @@ here and the tests will pass, but you don't have to this time around!
 #### Customer
 
 - `Customer __init__(self, first_name, last_name)`
-  - Customer should be initialized with a given name and family name, (i.e.,
-    first and last name,
-    like George Washington)"
-- `Customer property first_name()` and `Customer property last_name()`
+  - Customer is initialized with a given name and family name
+- `Customer property first_name` and `Customer property last_name`
   - Return first and last name, respectively
   - Names must be of type `str`
   - Names must be between 1 and 25 characters, inclusive
-  - `raise Exception` if setter validation fails
-
+  - Names **can be** changed after the `Customer` is initialized
 #### Restaurant
 
 - `Restaurant __init__(self, name)`
-  - Restaurants should be initialized with a name, as a string
-- `Restaurant property name()`
+  - Restaurant is initialized with a name
+- `Restaurant property name`
   - Returns the restaurant's name
-  - Must be 1 or more characters
-  - Should not be able to change after the restaurant is created
-  - `raise Exception` if setter validation fails
-- `Restaurant class attribute all`
-  - Returns a list of all restaurants
+  - Names must be of type `str`
+  - Names must be 1 or more characters
+  - Names **can be** changed after the `Restaurant` is initialized
 
 #### Review
 
 - `Review __init__(self, customer, restaurant, rating)`
-  - Reviews should be initialized with a customer, restaurant, and a rating (a number)
-- `Review property rating()`
+  - Review is initialized with a `Customer` instance, a `Restaurant` instance, and a rating
+- `Review property rating`
   - Returns the rating for a restaurant
-  - Rating must be a number between 1 and 5, inclusive
-  - `raise Exception` if setter validation fails
+  - Ratings must be of type `int`
+  - Ratings must be between 1 and 5, inclusive
+  - Ratings **cannot be** changed after the `Review` is initialized
 
-### Object Relationships
+### Object Relationship Methods and Properties
 
 #### Review
 
 - `Review customer`
   - Returns the customer object for that review
   - Must be of type `Customer`
-  - `raise Exception` if validation fails
   
 - `Review restaurant`
-  - Returns the restaurant object for that given review
+  - Returns the restaurant object for that review
   - Must be of type `Restaurant`
-  - `raise Exception` if validation fails
 
 #### Restaurant
 
-- `Restaurant reviews(self, new_review=None)`
-  - Creates a new review if called with new review
+- `Restaurant reviews()`
   - Returns a list of all reviews for that restaurant
   - Reviews must be of type `Review`
-  - _Should be called from `Review.__init__`_
-- `Restaurant customers(self, new_customer=None)`
-  - Creates a new customer if called with new customer
-  - Returns a **unique** list of all customers who have reviewed a particular restaurant.
+- `Restaurant customers()`
+  - Returns a **unique** list of all customers who have reviewed that restaurant.
   - Customers must be of type `Customer`
-  - _Should be called from `Review.__init__`_
 
 #### Customer
 
-- `Customer restaurants(self, new_restaurant=None)`
-  - Creates a new restaurant if called with new restaurant
+- `Customer reviews()`
+  - Returns a list of all reviews a customer has written
+  - Reviews must be of type `Review`
+- `Customer restaurants()`
   - Returns a **unique** list of all restaurants a customer has reviewed
   - Restaurants must be of type `Restaurant`
-  - _Should be called from `Review.__init__`_
-- `Customer reviews(self, new_review=None)`
-  - Creates a new review if called with new review
-  - Returns a list of all reviews a customer has written
-  - _Should be called from `Review.__init__`_
 
 ### Aggregate and Association Methods
 
 #### Customer
 
-- `Customer num_reviews()`
-  - Returns the total number of reviews that a customer has authored
+- `Customer num_negative_reviews()`
+  - Reminder: a review is considered negative if its rating is 1 or 2
+  - Returns the total number of negative reviews that a customer has authored
+  - Returns `0` if the customer never left a bad review
+- `Customer has_reviewed_restaurant()`
+  - Receives a `Restaurant` instance as argument
+  - Returns `True` if the customer has written a review for the given restaurant object
+  - Returns `False` otherwise
 
 #### Restaurant
 
-- `Restaurant average_star_rating(self)`
+- `Restaurant average_star_rating()`
   - Returns the average star rating for a restaurant based on its reviews
+  - Returns `0` if the user has no reviews
   - Reminder: you can calculate the average by adding up all the ratings and
     dividing by the number of ratings
+- `Restaurant classmethod top_two_restaurants()`
+  - Returns the top 2 restaurants in descending order by average star rating
+  - Returns `None` if there are no reviews
+
+### Bonus: Aggregate and Association Method
+
+- `Customer classmethod top_negative_reviewer()`
+  - Reminder: a review is considered negative if its rating is 1 or 2
+  - Returns the `Customer` instance with the most negative reviews
+  - Returns `None` if there are no negative reviews
+  - _hint: will need a way to remember all customer objects_
+  <!-- - Uncomment lines 157-171 in the customer_test file -->
+
+### Bonus: For any invalid inputs raise an `Exception`.
+- First, **comment out** the following lines
+  - **viewer_test.py**
+    - lines 
+  - **movie_test.py**
+    - lines 
+  - **review_test.py**
+    - lines 
+- Then, **uncomment** the following lines in the test files
+  - **viewer_test.py**
+    - lines 
+  - **movie_test.py**
+    - lines 
+  - **review_test.py**
+    - lines 
