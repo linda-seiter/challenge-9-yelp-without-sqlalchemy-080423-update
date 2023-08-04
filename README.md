@@ -152,20 +152,20 @@ here and the tests will pass, but you don't have to this time around!
   - Returns the `Customer` instance with the most negative reviews
   - Returns `None` if there are no negative reviews
   - _hint: will need a way to remember all customer objects_
-  <!-- - Uncomment lines 157-171 in the customer_test file -->
+  <!-- - Uncomment lines 158-172 in the customer_test file -->
 
 ### Bonus: For any invalid inputs raise an `Exception`.
 - First, **comment out** the following lines
-  - **viewer_test.py**
-    - lines 
-  - **movie_test.py**
-    - lines 
+  - **customer_test.py**
+    - lines 24-28, and 46-49
+  - **restaurant_test.py**
+    - lines 25-26
   - **review_test.py**
-    - lines 
+    - lines 27-28, and 74
 - Then, **uncomment** the following lines in the test files
-  - **viewer_test.py**
-    - lines 
-  - **movie_test.py**
-    - lines 
+  - **customer_test.py**
+    - lines 31-32, 35-36, 54-55, 58-59, 62-63, and 66-67
+  - **restaurant_test.py**
+    - lines 29-30, and 41-42
   - **review_test.py**
-    - lines 
+    - lines 31-32, 44-45, 48-49, 52-53, 81-82, and 107-108

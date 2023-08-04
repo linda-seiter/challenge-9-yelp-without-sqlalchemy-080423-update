@@ -111,6 +111,7 @@ class TestRestaurant:
     
     def test_top_two_restaurants(self):
         """returns the top 2 restaurants in descending order by average star rating"""
+        Review.all = []
         restaurant_1 = Restaurant("Mels")
         restaurant_2 = Restaurant("IronMeal")
         restaurant_3 = Restaurant("Da Giovanni")
