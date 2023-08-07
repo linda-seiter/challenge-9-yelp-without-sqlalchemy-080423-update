@@ -4,7 +4,6 @@ from classes.restaurant import Restaurant
 from classes.customer import Customer
 from classes.review import Review
 
-
 class TestReview:
     """Review in review.py"""
 

@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 importlib-resources = "5.10.0"
+importlib-metadata = "*"
 ipdb = "0.13.9"
 pytest="7.1.3"
 

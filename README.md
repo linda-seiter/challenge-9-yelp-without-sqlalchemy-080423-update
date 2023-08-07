@@ -58,10 +58,6 @@ build out any helper methods if needed.
 
 ### Initializers and Properties
 
-For any invalid inputs raise an `Exception`. In your future work, you should
-raise specific types of exceptions for specific error cases. You can do that
-here and the tests will pass, but you don't have to this time around!
-
 #### Customer
 
 - `Customer __init__(self, first_name, last_name)`
@@ -70,7 +66,7 @@ here and the tests will pass, but you don't have to this time around!
   - Return first and last name, respectively
   - Names must be of type `str`
   - Names must be between 1 and 25 characters, inclusive
-  - Names **can be** changed after the `Customer` is initialized
+  - Names **can be** changed after the `Customer` object is initialized
 #### Restaurant
 
 - `Restaurant __init__(self, name)`
@@ -79,7 +75,7 @@ here and the tests will pass, but you don't have to this time around!
   - Returns the restaurant's name
   - Names must be of type `str`
   - Names must be 1 or more characters
-  - Names **can be** changed after the `Restaurant` is initialized
+  - Names **can be** changed after the `Restaurant` object is initialized
 
 #### Review
 
@@ -89,7 +85,7 @@ here and the tests will pass, but you don't have to this time around!
   - Returns the rating for a restaurant
   - Ratings must be of type `int`
   - Ratings must be between 1 and 5, inclusive
-  - Ratings **cannot be** changed after the `Review` is initialized
+  - Ratings **cannot be** changed after the `Review` object is initialized
 
 ### Object Relationship Methods and Properties
 
@@ -98,11 +94,12 @@ here and the tests will pass, but you don't have to this time around!
 - `Review customer`
   - Returns the customer object for that review
   - Must be of type `Customer`
+  - Customers **can be** changed after the `Review` object is initialized
   
 - `Review restaurant`
   - Returns the restaurant object for that review
   - Must be of type `Restaurant`
-
+  - Restaurants **can be** changed after the `Review` object is initialized
 #### Restaurant
 
 - `Restaurant reviews()`
@@ -126,7 +123,7 @@ here and the tests will pass, but you don't have to this time around!
 #### Customer
 
 - `Customer num_negative_reviews()`
-  - Reminder: a review is considered negative if its rating is 1 or 2
+  - **Reminder**: a review is considered negative if its rating is 1 or 2
   - Returns the total number of negative reviews that a customer has authored
   - Returns `0` if the customer never left a bad review
 - `Customer has_reviewed_restaurant(restaurant)`
@@ -139,33 +136,34 @@ here and the tests will pass, but you don't have to this time around!
 - `Restaurant average_star_rating()`
   - Returns the average star rating for a restaurant based on its reviews
   - Returns `0` if the user has no reviews
-  - Reminder: you can calculate the average by adding up all the ratings and
+  - Rounds the result to the first decimal digit
+  - **Reminder**: you can calculate the average by adding up all the ratings and
     dividing by the number of ratings
 - `Restaurant classmethod top_two_restaurants()`
   - Returns the top 2 restaurants in descending order by average star rating
   - Returns `None` if there are no reviews
-  - _hint: will need a way to remember all restaurant objects_
+
 ### Bonus: Aggregate and Association Method
 
 - `Customer classmethod top_negative_reviewer()`
-  - Reminder: a review is considered negative if its rating is 1 or 2
+  - **Reminder**: a review is considered negative if its rating is 1 or 2
   - Returns the `Customer` instance with the most negative reviews
   - Returns `None` if there are no negative reviews
   - _hint: will need a way to remember all customer objects_
-  <!-- - Uncomment lines 158-172 in the customer_test file -->
+  <!-- - Uncomment lines 159-174 in the customer_test file -->
 
 ### Bonus: For any invalid inputs raise an `Exception`.
 - First, **comment out** the following lines
   - **customer_test.py**
-    - lines 25-29, and 47-50
+    - lines 26-30, and 48-53
   - **restaurant_test.py**
     - lines 26-27
   - **review_test.py**
-    - lines 28-29, and 75
+    - lines 27-28, and 74
 - Then, **uncomment** the following lines in the test files
   - **customer_test.py**
-    - lines 32-33, 36-37, 55-56, 59-60, 63-64, and 67-68
+    - lines 33-34, 37-38, 56-57, 60-61, 64-65, and 68-69
   - **restaurant_test.py**
     - lines 30-31, and 42-43
   - **review_test.py**
-    - lines 32-33, 45-46, 49-50, 53-54, 82-83, and 107-108
+    - lines 32-33, 44-45, 48-49, 52-53, 81-82, and 106-107
