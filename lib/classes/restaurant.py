@@ -24,9 +24,10 @@ class Restaurant:
         return list({review.customer for review in self.reviews()})
 
     def average_star_rating(self):
-        return (
-            mean([review.rating for review in self.reviews()]) if self.reviews() else 0
-        )
+        return round(
+            mean([review.rating for review in self.reviews()]),
+            1
+        ) if self.reviews() else 0
 
     @classmethod
     def top_two_restaurants(cls):

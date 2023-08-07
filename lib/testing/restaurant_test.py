@@ -107,8 +107,10 @@ class TestRestaurant:
         customer_2 = Customer("Dima", "Bay")
         Review(customer, restaurant, 2)
         Review(customer_2, restaurant, 5)
+        Review(customer_2, restaurant, 4)
 
-        assert restaurant.average_star_rating() == 3.5
+        # rounds the result to 1 decimal place
+        assert restaurant.average_star_rating() == 3.7
 
     def test_top_two_restaurants(self):
         """returns the top 2 restaurants in descending order by average star rating"""
