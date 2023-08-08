@@ -149,17 +149,17 @@ build out any helper methods if needed.
   - **Reminder**: a review is considered negative if its rating is 1 or 2
   - Returns the `Customer` instance with the most negative reviews
   - Returns `None` if there are no negative reviews
+  - Uncomment lines 160-175 in the customer_test file
   - _hint: will need a way to remember all customer objects_
-  <!-- - Uncomment lines 159-174 in the customer_test file -->
 
 ### Bonus: For any invalid inputs raise an `Exception`.
 - First, **comment out** the following lines
   - **customer_test.py**
-    - lines 24-28, and 46-49
+    - lines 25-29, and 47-52
   - **restaurant_test.py**
     - lines 26-27
   - **review_test.py**
-    - lines 27-28, and 74
+    - lines 28-29, and 75
 - Then, **uncomment** the following lines in the test files
   - **customer_test.py**
     - lines 32-33, 36-37, 55-56, 59-60, 63-64, and 67-68
