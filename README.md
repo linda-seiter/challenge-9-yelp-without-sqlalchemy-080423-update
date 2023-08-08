@@ -149,7 +149,7 @@ build out any helper methods if needed.
   - **Reminder**: a review is considered negative if its rating is 1 or 2
   - Returns the `Customer` instance with the most negative reviews
   - Returns `None` if there are no negative reviews
-  - Uncomment lines 160-175 in the customer_test file
+  - Uncomment lines 159-174 in the customer_test file
   - _hint: will need a way to remember all customer objects_
 
 ### Bonus: For any invalid inputs raise an `Exception`.
