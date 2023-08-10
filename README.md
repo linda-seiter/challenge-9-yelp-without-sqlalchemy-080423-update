@@ -141,6 +141,7 @@ build out any helper methods if needed.
     dividing by the number of ratings
 - `Restaurant classmethod top_two_restaurants()`
   - Returns the top 2 restaurants in descending order by average star rating
+  - Restaurants must be of type `Restaurant`
   - Returns `None` if there are no reviews
 
 ### Bonus: Aggregate and Association Method
