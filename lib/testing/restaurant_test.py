@@ -111,6 +111,9 @@ class TestRestaurant:
 
         # rounds the result to 1 decimal place
         assert restaurant.average_star_rating() == 3.7
+        
+        Review.all = []
+        assert restaurant.average_star_rating() == 0.0
 
     def test_top_two_restaurants(self):
         """returns the top 2 restaurants in descending order by average star rating"""
@@ -134,3 +137,5 @@ class TestRestaurant:
         assert restaurant_3 not in Restaurant.top_two_restaurants()
         assert restaurant_4 not in Restaurant.top_two_restaurants()
 
+        Review.all = []
+        assert Restaurant.top_two_restaurants() is None

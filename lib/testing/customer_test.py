@@ -173,3 +173,5 @@ class TestCustomer:
 
     #     assert Customer.top_negative_reviewer() == customer_1
 
+    #     Review.all = []
+    #     assert Customer.top_negative_reviewer() is None

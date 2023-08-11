@@ -27,7 +27,7 @@ class Restaurant:
         return round(
             mean([review.rating for review in self.reviews()]),
             1
-        ) if self.reviews() else 0
+        ) if self.reviews() else 0.0
 
     @classmethod
     def top_two_restaurants(cls):
@@ -35,7 +35,7 @@ class Restaurant:
             cls.all,
             key=lambda restaurant: restaurant.average_star_rating(),
             reverse=True,
-        )
+        ) if Review.all else []
         return (
             sorted_list[:2]
             if len(sorted_list) > 1
