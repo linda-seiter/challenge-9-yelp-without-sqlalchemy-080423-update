@@ -135,7 +135,7 @@ build out any helper methods if needed.
 
 - `Restaurant average_star_rating()`
   - Returns the average star rating for a restaurant based on its reviews
-  - Returns `0` if the user has no reviews
+  - Returns `0.0` if the user has no reviews
   - Rounds the result to the first decimal digit
   - **Reminder**: you can calculate the average by adding up all the ratings and
     dividing by the number of ratings
@@ -150,21 +150,22 @@ build out any helper methods if needed.
   - **Reminder**: a review is considered negative if its rating is 1 or 2
   - Returns the `Customer` instance with the most negative reviews
   - Returns `None` if there are no negative reviews
-  - Uncomment lines 160-175 in the customer_test file
+  - Uncomment lines 159-177 in the customer_test file
   - _hint: will need a way to remember all customer objects_
 
 ### Bonus: For any invalid inputs raise an `Exception`.
 - First, **comment out** the following lines
   - **customer_test.py**
-    - lines 26-30, and 48-53
+    - lines 25-29, and 47-52
   - **restaurant_test.py**
     - lines 26-27
   - **review_test.py**
-    - lines 27-28, and 74
+    - lines 28-29, and 76
 - Then, **uncomment** the following lines in the test files
   - **customer_test.py**
-    - lines 33-34, 37-38, 56-57, 60-61, 64-65, and 68-69
+    - lines 32-33, 36-37, 55-56, 59-60, 63-64, and 67-68
   - **restaurant_test.py**
     - lines 30-31, and 42-43
   - **review_test.py**
-    - lines 32-33, 44-45, 48-49, 52-53, 81-82, and 106-107
+    - lines 32-33, 45-46, 49-50, 53-54, 87-88, and 117-118
+

@@ -5,7 +5,6 @@ from classes.customer import Customer
 from classes.review import Review
 
 
-
 class TestCustomer:
     """Customer in customer.py"""
 
@@ -173,3 +172,7 @@ class TestCustomer:
     #     Review(customer_3, restaurant_1, 3)
 
     #     assert Customer.top_negative_reviewer() == customer_1
+
+    #     Review.all = []
+    #     assert Customer.top_negative_reviewer() is None
+

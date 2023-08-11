@@ -4,6 +4,7 @@ from classes.restaurant import Restaurant
 from classes.customer import Customer
 from classes.review import Review
 
+
 class TestReview:
     """Review in review.py"""
 
@@ -62,20 +63,25 @@ class TestReview:
         assert review_1.customer == customer
         assert review_2.customer == customer
 
-    def test_customer_of_type_customer(self):
-        """customer must be of type Customer"""
+    def test_customer_of_type_customer_and_mutable(self):
+        """customer must be of type Customer and mutable"""
 
         restaurant = Restaurant("Mels")
-        customer = Customer("Steve", "Wayne")
-        review_1 = Review(customer, restaurant, 2)
-        review_2 = Review(customer, restaurant, 5)
+        customer_1 = Customer("Steve", "Wayne")
+        customer_2 = Customer("Steve", "Jobs")
+        review_1 = Review(customer_1, restaurant, 2)
+        review_2 = Review(customer_1, restaurant, 5)
 
         # comment out next line if using Exceptions
         review_1.customer = "Casper"
 
         assert isinstance(review_1.customer, Customer)
         assert isinstance(review_2.customer, Customer)
-        assert review_1.customer == customer
+        assert review_1.customer == customer_1
+        
+        review_1.customer = customer_2
+        assert review_1.customer.last_name == "Jobs"
+        assert isinstance(review_2.customer, Customer)
 
         # uncomment the next two lines if using Exceptions
         # with pytest.raises(Exception):
@@ -92,14 +98,19 @@ class TestReview:
         assert review_1.restaurant == restaurant
         assert review_2.restaurant == restaurant
 
-    def restaurant_of_type_restaurant(self):
-        """restaurant must be of type Restaurant"""
-        restaurant = Restaurant("Mels")
+    def restaurant_of_type_restaurant_and_mutable(self):
+        """restaurant must be of type Restaurant and mutable"""
+        restaurant_1 = Restaurant("Mels")
+        restaurant_2 = Restaurant("Moms")
         customer = Customer("Steve", "Wayne")
-        review_1 = Review(customer, restaurant, 2)
-        review_2 = Review(customer, restaurant, 5)
+        review_1 = Review(customer, restaurant_1, 2)
+        review_2 = Review(customer, restaurant_2, 5)
 
         assert isinstance(review_1.restaurant, Restaurant)
+        assert isinstance(review_2.restaurant, Restaurant)
+
+        review_1.restaurant = restaurant_2
+        assert review_1.restaurant.name == "Moms"
         assert isinstance(review_2.restaurant, Restaurant)
 
         # uncomment the next two lines if using Exceptions
@@ -117,3 +128,5 @@ class TestReview:
         assert len(Review.all) == 2
         assert review_1 in Review.all
         assert review_2 in Review.all
+
+
