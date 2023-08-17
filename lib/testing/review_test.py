@@ -1,12 +1,12 @@
 import pytest
 
-from classes.restaurant import Restaurant
-from classes.customer import Customer
-from classes.review import Review
+from classes.many_to_many import Restaurant
+from classes.many_to_many import Customer
+from classes.many_to_many import Review
 
 
 class TestReview:
-    """Review in review.py"""
+    """Review in many_to_many.py"""
 
     def test_has_rating(self):
         """Review is initialized with a rating"""
