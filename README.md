@@ -22,15 +22,15 @@ start coding_. Remember to identify a single source of truth for your data.
 
 ## Instructions
 
-To get started, run `pipenv install` while inside of this directory. 
-Then run `pipenv shell` to jump into the shell.
+To get started, run `pipenv install` while inside of this directory. Then run
+`pipenv shell` to jump into the shell.
 
 Build out all of the methods listed in the deliverables. The methods are listed
 in a suggested order, but you can feel free to tackle the ones you think are
 easiest. Be careful: some of the later methods rely on earlier ones.
 
-**Remember!** This code challenge has tests to help you check your work. You
-can run `pytest` to make sure your code is functional before submitting.
+**Remember!** This code challenge has tests to help you check your work. You can
+run `pytest` to make sure your code is functional before submitting.
 
 We've provided you with a tool that you can use to test your code. To use it,
 run `python debug.py` from the command line. This will start a `ipdb` session
@@ -67,6 +67,7 @@ build out any helper methods if needed.
   - Names must be of type `str`
   - Names must be between 1 and 25 characters, inclusive
   - Names **can be** changed after the `Customer` object is initialized
+
 #### Restaurant
 
 - `Restaurant __init__(self, name)`
@@ -80,7 +81,8 @@ build out any helper methods if needed.
 #### Review
 
 - `Review __init__(self, customer, restaurant, rating)`
-  - Review is initialized with a `Customer` instance, a `Restaurant` instance, and a rating
+  - Review is initialized with a `Customer` instance, a `Restaurant` instance,
+    and a rating
 - `Review property rating`
   - Returns the rating for a restaurant
   - Ratings must be of type `int`
@@ -95,18 +97,19 @@ build out any helper methods if needed.
   - Returns the customer object for that review
   - Must be of type `Customer`
   - Customers **can be** changed after the `Review` object is initialized
-  
 - `Review restaurant`
   - Returns the restaurant object for that review
   - Must be of type `Restaurant`
   - Restaurants **can be** changed after the `Review` object is initialized
+
 #### Restaurant
 
 - `Restaurant reviews()`
   - Returns a list of all reviews for that restaurant
   - Reviews must be of type `Review`
 - `Restaurant customers()`
-  - Returns a **unique** list of all customers who have reviewed that restaurant.
+  - Returns a **unique** list of all customers who have reviewed that
+    restaurant.
   - Customers must be of type `Customer`
 
 #### Customer
@@ -128,7 +131,8 @@ build out any helper methods if needed.
   - Returns `0` if the customer never left a bad review
 - `Customer has_reviewed_restaurant(restaurant)`
   - Receives a `Restaurant` instance as argument
-  - Returns `True` if the customer has written a review for the given restaurant object
+  - Returns `True` if the customer has written a review for the given restaurant
+    object
   - Returns `False` otherwise
 
 #### Restaurant
@@ -154,18 +158,18 @@ build out any helper methods if needed.
   - _hint: will need a way to remember all customer objects_
 
 ### Bonus: For any invalid inputs raise an `Exception`.
+
 - First, **comment out** the following lines
   - **customer_test.py**
     - lines 25-29, and 47-52
   - **restaurant_test.py**
-    - lines 26-27
+    - lines 26-27, and 39-40
   - **review_test.py**
     - lines 28-29, and 76
 - Then, **uncomment** the following lines in the test files
   - **customer_test.py**
     - lines 32-33, 36-37, 55-56, 59-60, 63-64, and 67-68
   - **restaurant_test.py**
-    - lines 30-31, and 42-43
+    - lines 30-31, and 43-44
   - **review_test.py**
     - lines 32-33, 45-46, 49-50, 53-54, 87-88, and 117-118
-

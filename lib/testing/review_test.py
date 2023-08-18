@@ -128,5 +128,3 @@ class TestReview:
         assert len(Review.all) == 2
         assert review_1 in Review.all
         assert review_2 in Review.all
-
-
