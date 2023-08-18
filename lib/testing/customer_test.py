@@ -156,23 +156,23 @@ class TestCustomer:
         assert customer_1.has_reviewed_restaurant(restaurant_1) == True
         assert customer_1.has_reviewed_restaurant(restaurant_2) == False
 
-    # def test_top_negative_reviewer(self):
-    #     """returns the customer with the most negative reviews"""
-    #     Review.all = []
-    #     restaurant_1 = Restaurant("Mels")
-    #     restaurant_2 = Restaurant("Mel'b")
-    #     customer_1 = Customer('Steve', 'Wayne')
-    #     customer_2 = Customer("Ned", "Stark")
-    #     customer_3 = Customer("Sponge", "Bob")
-    #     Review(customer_1, restaurant_1, 2)
-    #     Review(customer_1, restaurant_2, 3)
-    #     Review(customer_1, restaurant_1, 1)
-    #     Review(customer_2, restaurant_2, 3)
-    #     Review(customer_2, restaurant_1, 2)
-    #     Review(customer_3, restaurant_1, 3)
+    def test_top_negative_reviewer(self):
+        """returns the customer with the most negative reviews"""
+        Review.all = []
+        restaurant_1 = Restaurant("Mels")
+        restaurant_2 = Restaurant("Mel'b")
+        customer_1 = Customer('Steve', 'Wayne')
+        customer_2 = Customer("Ned", "Stark")
+        customer_3 = Customer("Sponge", "Bob")
+        Review(customer_1, restaurant_1, 2)
+        Review(customer_1, restaurant_2, 3)
+        Review(customer_1, restaurant_1, 1)
+        Review(customer_2, restaurant_2, 3)
+        Review(customer_2, restaurant_1, 2)
+        Review(customer_3, restaurant_1, 3)
 
-    #     assert Customer.top_negative_reviewer() == customer_1
+        assert Customer.top_negative_reviewer() == customer_1
 
-    #     Review.all = []
-    #     assert Customer.top_negative_reviewer() is None
+        Review.all = []
+        assert Customer.top_negative_reviewer() is None
 

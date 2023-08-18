@@ -34,7 +34,8 @@ class TestRestaurant:
         """name must be 1 or more characters long"""
         restaurant = Restaurant("Mel's")
         assert len(restaurant.name) > 0
-
+        
+        # comment the next two lines if using Exceptions
         restaurant.name = ""
         assert restaurant.name == "Mel's"
 

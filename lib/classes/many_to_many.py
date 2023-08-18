@@ -18,6 +18,7 @@ class Customer:
             self._first_name = first_name
         else:
             return None
+            # raise Exception("First name must be a string between 1 and 25 characters")
 
     @property
     def last_name(self):
@@ -29,6 +30,7 @@ class Customer:
             self._last_name = last_name
         else:
             return None
+            # raise Exception("First name must be a string between 1 and 25 characters")
 
     def reviews(self):
         return [review for review in Review.all if review.customer is self]
@@ -44,11 +46,11 @@ class Customer:
 
     @classmethod
     def top_negative_reviewer(cls):
-        return (
-            max(cls.all, key=lambda customer: customer.num_negative_reviews())
-            if cls.all
-            else None
-        )
+        if cls.all:
+            top = max(cls.all, key=lambda customer: customer.num_negative_reviews())
+            if top.num_negative_reviews() > 0:
+                return top
+        return None
     
 class Restaurant:
     all = []
@@ -67,7 +69,7 @@ class Restaurant:
             self._name = name
         else:
             return None
-            # raise Exception("Names must be non-empty strings")
+            # raise Exception("Name must be non-empty string")
 
     def reviews(self):
         return [review for review in Review.all if review.restaurant is self]
@@ -117,7 +119,7 @@ class Review:
             self._rating = rating
         else:
             return None
-            # raise Exception("Ratings must be integers between 1 and 5")
+            # raise Exception("Rating must be integer between 1 and 5 that can't be changed")
 
     @property
     def customer(self):
